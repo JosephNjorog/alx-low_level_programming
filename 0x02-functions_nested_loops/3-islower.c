@@ -1,4 +1,5 @@
 #include "main.h"
+#include <ctype.h>
 
 /**
  * _islower - checks for lowercase character
@@ -6,7 +7,7 @@
  * Return: 1 for lowercase character or 0 for anything else
  */
 
-int _islower(int c)
+int islower ('H')
 
 {
 	if (c >= 97 && c <= 122)
