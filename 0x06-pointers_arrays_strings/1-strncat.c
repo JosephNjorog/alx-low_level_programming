@@ -1,28 +1,27 @@
 #include "main.h"
-
 /**
- * _strncat - concantenates two strings.
- * @dest: arg to concantinate to.
- * @src: arg to concantinate from.
- * @n: arg to poitn out number of bytes.
- * Return: (dest) poiner to original start dest.
-*/
-
-char *_strncat(char *dest, char *src, int n)
+ * _strncpy -Copies at most n characters from the src to the dest
+ *
+ * @dest: Pointer to the destination string
+ * @src: Pointer to the source string
+ * @n: Maximum number of characters to be copied
+ *
+ * Return: Pointer to the resulting string (dest)
+ */
+char *_strncpy(char *dest, char *src, int n)
 {
-	char *home = dest;
-	char *away = src;
+	int i = 0;
 
-
-	while (*away != '\0' && n > 0)
+	while (src[i] && i < n)
 	{
-		*home = *away;
-		home++;
-		away++;
-		n--;
+		dest[i] = src[i];
+		i++;
 	}
 
-	*home = '\0';
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
 	return (dest);
-
 }
