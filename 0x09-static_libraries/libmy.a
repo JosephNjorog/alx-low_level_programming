@@ -1,0 +1,1 @@
+ar rc libmy.a *.o
