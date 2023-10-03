@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * argstostr - Concantinates all args of a program
+ * argstostr - concantinates all args of a program
  * @ac: argc
  * @av: argv
  * Return: pointer to new string.
