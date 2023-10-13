@@ -1,7 +1,7 @@
 #include "3-calc.h"
 #include <stdlib.h>
-#include "stdef.h"
 
+#include "stdef.h"
 /**
  * get_op_func - main function
  * @s: function parameter

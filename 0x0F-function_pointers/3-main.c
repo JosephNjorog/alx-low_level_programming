@@ -1,5 +1,5 @@
 #include "3-calc.h"
-
+#include "stdef.h"
 /**
  * main - initiates calculator
  * @argc: number of arguments

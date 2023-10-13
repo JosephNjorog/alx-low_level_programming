@@ -1,30 +1,29 @@
 #include "3-calc.h"
-
+#include <stdlib.h>
+#include "stdef.h"
 /**
- * get_op_func - selects an operation depending on operator.
- * @s: pointer to the operator argument
- * Return: pointer to a operator function
- *			NULL if no function is detected.
-*/
+ * get_op_func - main function
+ * @s: function parameter
+ * Return: a pointer to the function
+ */
 
 int (*get_op_func(char *s))(int, int)
 {
-	/*array of opt_t structures*/
+	int i =0;
+
 	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
 		{"/", op_div},
 		{"%", op_mod},
-		{NULL, NULL}
+		{NULL, NULL},
 	};
-	int i;
 
-	i = 0;
 
-	while (ops[i].op != NULL)
+	while (op[i].op) 
 	{
-		if ((*(ops[i].op) == *s) && (s[1] == '\0'))
+		if (*(ops[i].op) == *s && !(*(s + 1)))
 		{
 			return (ops[i].f);
 		}
