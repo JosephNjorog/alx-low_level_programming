@@ -1,34 +1,44 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+
 /**
- * read_textfile - function reads a text file
- * @filename: parameter 1
- * @letters:parameter function 2
- * Return: 0
+ * read_textfile - Reads and prints text from a file to stdout.
+ * @filename: Name of the file.
+ * @letters: Number of letters to be read and printed.
+ *
+ * Return: Actual number of read and printed letters.
  */
 
-int create_file(const char *filename, char *text_content)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-    if (filename == NULL)
-        return (-1);
+	int fd;
+	char *s;
+	ssize_t rsize, wsize;
 
-    int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
-    if (fd == -1)
-        return (-1);
+	if (!filename)
+		return (0);
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		return (0);
 
-    if (text_content != NULL)
-    {
-        ssize_t bytes_written = write(fd, text_content, strlen(text_content));
-        if (bytes_written == -1)
-        {
-            close(fd);
-            return (-1);
-        }
-    }
+	s = malloc(sizeof(char) * letters);
+	if (!s)
+		return (0);
+	rsize = read(fd, s, letters);
+	if (rsize < 0)
+	{
+		free(s);
+		return (0);
+	}
 
-    close(fd);
-    return (1);
+	s[rsize] = '\0';
+	close(fd);
+
+	wsize = write(STDOUT_FILENO, s, rsize);
+	if (wsize < 0)
+	{
+		free(s);
+		return (0);
+	}
+	free(s);
+	return (wsize);
 }
