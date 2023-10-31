@@ -23,6 +23,8 @@ int append_text_to_file(const char *filename, char *text_content);
 
 size_t _strlen2(char *s);
 void error_and_exit(int code, const char *message, const char *arg);
+int main(int argc, char *argv[]);
+void error_and_exit(int code, const char *message, const char *arg);
 
 #define ELF_HEADER_SIZE 64
 #define ERROR "Error: can't read from file %s\n"
