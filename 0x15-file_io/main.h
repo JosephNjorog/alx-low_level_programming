@@ -30,5 +30,3 @@ void error_and_exit(int code, const char *message, const char *arg);
 #define ERROR "Error: can't read from file %s\n"
 #define ERR "Error: can't write to %s/n"
 #endif
-
-#endif /* H */
